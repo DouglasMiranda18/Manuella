@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Amor - Para Manuella ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --color-primary: #f8d0d0;
+            --color-secondary: #f9e9e0;
+            --color-accent: #a52a2a;
+            --color-gold: #d4af37;
+            --color-text: #4a4a4a;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-text);
+            background-color: var(--color-secondary);
+            overflow-x: hidden;
+        }
+        
+        .cursive {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .section {
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            scroll-snap-align: start;
+        }
+        
+        .splash {
+            background: linear-gradient(rgba(248, 208, 208, 0.7), rgba(249, 233, 224, 0.7)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23d4af37' d='M50,30c9-22 42-24 48,0c5,40-40,40-48,65c-8-25-54-25-48-65c 6-24 39-22 48,0 Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: 80px 80px;
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23a52a2a' d='M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z'%3E%3C/path%3E%3C/svg%3E") no-repeat center center;
+            opacity: 0.6;
+            animation: float 15s linear infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0.5) rotate(0deg);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(165, 42, 42, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 10px rgba(165, 42, 42, 0.3);
+        }
+        
+        .carousel {
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .carousel-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .carousel-control {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-control:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .timeline {
+            width: 100%;
+            max-width: 800px;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+        
+        .timeline-inner {
+            display: flex;
+            min-width: max-content;
+        }
+        
+        .timeline-item {
+            width: 250px;
+            margin-right: 30px;
+            flex-shrink: 0;
+        }
+        
+        .timeline-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-date {
+            margin-top: 10px;
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+        
+        .timeline-text {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .quiz-container {
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .quiz-question {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1rem;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+        
+        .quiz-option {
+            background-color: var(--color-primary);
+            border: 2px solid transparent;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            border-color: var(--color-accent);
+        }
+        
+        .quiz-option.selected {
+            border-color: var(--color-accent);
+            background-color: rgba(165, 42, 42, 0.1);
+        }
+        
+        .counter {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .counter-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-top: 1rem;
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 0.15em solid var(--color-accent);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--color-accent) }
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .playlist-container {
+            width: 100%;
+            max-width: 600px;
+            background-color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .song {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .song:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .song-number {
+            width: 30px;
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+        
+        .song-info {
+            flex-grow: 1;
+        }
+        
+        .song-title {
+            font-weight: 500;
+        }
+        
+        .song-artist {
+            font-size: 0.8rem;
+            color: #777;
+        }
+        
+        .song-duration {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-dot.active {
+            background-color: var(--color-accent);
+            transform: scale(1.2);
+        }
+        
+        @media (max-width: 768px) {
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Animation -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <!-- Navigation Dots -->
+    <div class="navigation" id="navigation">
+        <div class="nav-dot active" data-section="splash"></div>
+        <div class="nav-dot" data-section="carousel"></div>
+        <div class="nav-dot" data-section="message"></div>
+        <div class="nav-dot" data-section="timeline"></div>
+        <div class="nav-dot" data-section="quiz"></div>
+        <div class="nav-dot" data-section="playlist"></div>
+        <div class="nav-dot" data-section="counter"></div>
+    </div>
+    
+    <!-- Splash Screen -->
+    <section id="splash" class="section splash">
+        <div class="text-center z-10">
+            <h1 class="cursive text-5xl md:text-7xl mb-6 text-[var(--color-accent)]">Feliz Dia dos Namorados, meu amor!</h1>
+            <p class="text-xl mb-10">Um presente especial para você, Manuella ❤️</p>
+            <button id="startButton" class="btn-primary">Clique para começar essa experiência feita só para você ❤️</button>
+        </div>
+    </section>
+    
+    <!-- Carrossel de Fotos -->
+    <section id="carousel" class="section hidden">
+        <h2 class="cursive text-4xl md:text-5xl mb-10 text-[var(--color-accent)]">Nossos Momentos</h2>
+        <div class="carousel">
+            <div class="carousel-inner" id="carouselInner">
+                <div class="carousel-item">
+                    <div class="carousel-img bg-[var(--color-primary)] flex items-center justify-center">
+                        <svg class="w-32 h-32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#a52a2a" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"></path>
+                        </svg>
+                    </div>
+                    <div class="carousel-caption">
+                        <p class="cursive text-xl">"Seu sorriso é meu lugar favorito."</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-img bg-[var(--color-secondary)] flex items-center justify-center">
+                        <svg class="w-32 h-32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#a52a2a" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path>
+                        </svg>
+                    </div>
+                    <div class="carousel-caption">
+                        <p class="cursive text-xl">"Cada momento ao seu lado é uma eternidade de felicidade."</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-img bg-[var(--color-primary)] flex items-center justify-center">
+                        <svg class="w-32 h-32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#a52a2a" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,10.5A1.5,1.5 0 0,1 13.5,12A1.5,1.5 0 0,1 12,13.5A1.5,1.5 0 0,1 10.5,12A1.5,1.5 0 0,1 12,10.5M7.5,10.5A1.5,1.5 0 0,1 9,12A1.5,1.5 0 0,1 7.5,13.5A1.5,1.5 0 0,1 6,12A1.5,1.5 0 0,1 7.5,10.5M16.5,10.5A1.5,1.5 0 0,1 18,12A1.5,1.5 0 0,1 16.5,13.5A1.5,1.5 0 0,1 15,12A1.5,1.5 0 0,1 16.5,10.5Z"></path>
+                        </svg>
+                    </div>
+                    <div class="carousel-caption">
+                        <p class="cursive text-xl">"Você é a melhor parte de todos os meus dias."</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-img bg-[var(--color-secondary)] flex items-center justify-center">
+                        <svg class="w-32 h-32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#a52a2a" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"></path>
+                        </svg>
+                    </div>
+                    <div class="carousel-caption">
+                        <p class="cursive text-xl">"Meu coração é seu, hoje e sempre."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-control" id="prevBtn">❮</button>
+                <button class="carousel-control" id="nextBtn">❯</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mensagem Especial -->
+    <section id="message" class="section hidden">
+        <div class="w-full max-w-2xl bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="cursive text-4xl text-center mb-8 text-[var(--color-accent)]">Mensagem Especial</h2>
+            <div id="typewriter" class="space-y-4 text-center">
+                <p class="text-lg">Manuella,</p>
+                <p>Desde o dia em que te conheci, meu mundo ganhou cor, paz e direção.</p>
+                <p>Este site é só uma forma simples de te mostrar o quanto eu te amo.</p>
+                <p>Você é minha melhor escolha todos os dias. Feliz Dia dos Namorados, meu amor!</p>
+                <p class="text-right">— Douglas 💘</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Linha do Tempo -->
+    <section id="timeline" class="section hidden">
+        <h2 class="cursive text-4xl md:text-5xl mb-10 text-[var(--color-accent)]">Nossa História</h2>
+        <div class="timeline">
+            <div class="timeline-inner">
+                <div class="timeline-item">
+                    <div class="timeline-img bg-[var(--color-primary)] flex items-center justify-center p-4">
+                        <svg class="w-16 h-16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#a52a2a" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"></path>
+                        </svg>
+                    </div>
+                    <div class="timeline-date">Primeira Conversa</div>
+                    <div class="timeline-text">Quando tudo começou com uma simples mensagem...</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-img bg-[var(--color-secondary)] flex items-center justify-center p-4">
+                        <svg class="w-16 h-16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#a52a2a" d="M12,3A4,4 0 0,1 16,7A4,4 0 0,1 12,11A4,4 0 0,1 8,7A4,4 0 0,1 12,3M16,13C16,13 15.8,14.2 15.5,15C14.6,15 9.7,15 8.5,15C8.2,14.2 8,13 8,13C8,13 9.1,12 12,12C14.9,12 16,13 16,13M19,18H5V19H19V18M20.5,16H3.5V17H20.5V16Z"></path>
+                        </svg>
+                    </div>
+                    <div class="timeline-date">Primeiro Encontro</div>
+                    <div class="timeline-text">Aquele dia especial que ficará para sempre em nossas memórias...</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-img bg-[var(--color-primary)] flex items-center justify-center p-4">
+                        <svg class="w-16 h-16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#a52a2a" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"></path>
+                        </svg>
+                    </div>
+                    <div class="timeline-date">Pedido de Namoro</div>
+                    <div class="timeline-text">Quando oficialmente começamos nossa história juntos...</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-img bg-[var(--color-secondary)] flex items-center justify-center p-4">
+                        <svg class="w-16 h-16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#a52a2a" d="M17.5,7A5.5,5.5 0 0,1 23,12.5A5.5,5.5 0 0,1 17.5,18C15.79,18 14.27,17.22 13.26,16H10.74C9.73,17.22 8.21,18 6.5,18A5.5,5.5 0 0,1 1,12.5A5.5,5.5 0 0,1 6.5,7H17.5M6.5,9A3.5,3.5 0 0,0 3,12.5A3.5,3.5 0 0,0 6.5,16C7.9,16 9.1,15.18 9.66,14H14.34C14.9,15.18 16.1,16 17.5,16A3.5,3.5 0 0,0 21,12.5A3.5,3.5 0 0,0 17.5,9H6.5M5.75,10.25H7.25V11.75H8.75V13.25H7.25V14.75H5.75V13.25H4.25V11.75H5.75V10.25M16.75,12.5A1,1 0 0,1 17.75,13.5A1,1 0 0,1 16.75,14.5A1,1 0 0,1 15.75,13.5A1,1 0 0,1 16.75,12.5M18.75,10.5A1,1 0 0,1 19.75,11.5A1,1 0 0,1 18.75,12.5A1,1 0 0,1 17.75,11.5A1,1 0 0,1 18.75,10.5Z"></path>
+                        </svg>
+                    </div>
+                    <div class="timeline-date">Primeira Viagem</div>
+                    <div class="timeline-text">Nossa primeira aventura juntos, descobrindo novos lugares...</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-img bg-[var(--color-primary)] flex items-center justify-center p-4">
+                        <svg class="w-16 h-16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#a52a2a" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"></path>
+                        </svg>
+                    </div>
+                    <div class="timeline-date">Momento Especial</div>
+                    <div class="timeline-text">Aquele momento inesquecível que marcou nossa história...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Quiz do Amor -->
+    <section id="quiz" class="section hidden">
+        <h2 class="cursive text-4xl md:text-5xl mb-10 text-[var(--color-accent)]">Quiz do Amor</h2>
+        <div class="quiz-container">
+            <div id="quizContent">
+                <div class="quiz-question" id="question1">
+                    <h3 class="text-xl font-medium mb-2">1. Qual foi nosso primeiro filme juntos?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-correct="false">A Culpa é das Estrelas</div>
+                        <div class="quiz-option" data-correct="true">Titanic</div>
+                        <div class="quiz-option" data-correct="false">Diário de uma Paixão</div>
+                        <div class="quiz-option" data-correct="false">Como Eu Era Antes de Você</div>
+                    </div>
+                </div>
+                <div class="quiz-question hidden" id="question2">
+                    <h3 class="text-xl font-medium mb-2">2. O que eu mais amo em você?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-correct="false">Seu cabelo</div>
+                        <div class="quiz-option" data-correct="false">Sua inteligência</div>
+                        <div class="quiz-option" data-correct="true">Seu sorriso</div>
+                        <div class="quiz-option" data-correct="false">Seus olhos</div>
+                    </div>
+                </div>
+                <div class="quiz-question hidden" id="question3">
+                    <h3 class="text-xl font-medium mb-2">3. Qual é minha comida favorita?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-correct="false">Pizza</div>
+                        <div class="quiz-option" data-correct="false">Hambúrguer</div>
+                        <div class="quiz-option" data-correct="false">Sushi</div>
+                        <div class="quiz-option" data-correct="true">Lasanha</div>
+                    </div>
+                </div>
+                <div id="quizResult" class="hidden text-center p-8 bg-white rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-[var(--color-accent)] mb-4">🎉 Parabéns!</h3>
+                    <p class="text-xl">Você conhece tudo de nós. Porque nosso amor é real demais!</p>
+                    <div class="mt-6">
+                        <svg class="w-24 h-24 mx-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#a52a2a" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Playlist Romântica -->
+    <section id="playlist" class="section hidden">
+        <h2 class="cursive text-4xl md:text-5xl mb-10 text-[var(--color-accent)]">Nossa Playlist</h2>
+        <div class="playlist-container">
+            <div class="song">
+                <div class="song-number">1</div>
+                <div class="song-info">
+                    <div class="song-title">Perfect</div>
+                    <div class="song-artist">Ed Sheeran</div>
+                </div>
+                <div class="song-duration">4:23</div>
+            </div>
+            <div class="song">
+                <div class="song-number">2</div>
+                <div class="song-info">
+                    <div class="song-title">All of Me</div>
+                    <div class="song-artist">John Legend</div>
+                </div>
+                <div class="song-duration">4:29</div>
+            </div>
+            <div class="song">
+                <div class="song-number">3</div>
+                <div class="song-info">
+                    <div class="song-title">Thinking Out Loud</div>
+                    <div class="song-artist">Ed Sheeran</div>
+                </div>
+                <div class="song-duration">4:41</div>
+            </div>
+            <div class="song">
+                <div class="song-number">4</div>
+                <div class="song-info">
+                    <div class="song-title">Just the Way You Are</div>
+                    <div class="song-artist">Bruno Mars</div>
+                </div>
+                <div class="song-duration">3:40</div>
+            </div>
+            <div class="song">
+                <div class="song-number">5</div>
+                <div class="song-info">
+                    <div class="song-title">A Thousand Years</div>
+                    <div class="song-artist">Christina Perri</div>
+                </div>
+                <div class="song-duration">4:45</div>
+            </div>
+            <div class="mt-6 text-center">
+                <p class="text-sm text-gray-500">Músicas que marcaram nossa história ❤️</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contador de Tempo Juntos -->
+    <section id="counter" class="section hidden">
+        <h2 class="cursive text-4xl md:text-5xl mb-10 text-[var(--color-accent)]">Nosso Tempo Juntos</h2>
+        <div class="counter">
+            <p class="text-xl">Estamos juntos há:</p>
+            <div class="counter-value" id="counterValue">
+                Calculando...
+            </div>
+            <p class="mt-6 text-lg">E cada segundo ao seu lado é precioso para mim.</p>
+        </div>
+    </section>
+
+    <script>
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            const heartCount = 20;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                
+                // Random position
+                heart.style.left = `${Math.random() * 100}%`;
+                
+                // Random size
+                const size = Math.random() * 20 + 10;
+                heart.style.width = `${size}px`;
+                heart.style.height = `${size}px`;
+                
+                // Random delay
+                heart.style.animationDelay = `${Math.random() * 15}s`;
+                
+                // Random duration
+                heart.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                
+                container.appendChild(heart);
+            }
+        }
+        
+        // Navigation
+        function setupNavigation() {
+            const sections = ['splash', 'carousel', 'message', 'timeline', 'quiz', 'playlist', 'counter'];
+            const dots = document.querySelectorAll('.nav-dot');
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const sectionId = dot.getAttribute('data-section');
+                    showSection(sectionId);
+                    
+                    // Update active dot
+                    dots.forEach(d => d.classList.remove('active'));
+                    dot.classList.add('active');
+                });
+            });
+        }
+        
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            const targetSection = document.getElementById(sectionId);
+            targetSection.classList.remove('hidden');
+            targetSection.classList.add('fade-in');
+            
+            // Update navigation dots
+            const dots = document.querySelectorAll('.nav-dot');
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-section') === sectionId) {
+                    dot.classList.add('active');
+                }
+            });
+            
+            // Special handling for sections
+            if (sectionId === 'message') {
+                animateTypewriter();
+            } else if (sectionId === 'counter') {
+                updateCounter();
+            }
+        }
+        
+        // Start button
+        function setupStartButton() {
+            const startButton = document.getElementById('startButton');
+            startButton.addEventListener('click', () => {
+                showSection('carousel');
+            });
+        }
+        
+        // Carousel
+        function setupCarousel() {
+            const carousel = document.getElementById('carouselInner');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentSlide = 0;
+            const slides = carousel.children.length;
+            
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+            
+            prevBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + slides) % slides;
+                updateCarousel();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % slides;
+                updateCarousel();
+            });
+            
+            // Auto slide
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides;
+                updateCarousel();
+            }, 5000);
+        }
+        
+        // Typewriter effect
+        function animateTypewriter() {
+            const typewriter = document.getElementById('typewriter');
+            const paragraphs = typewriter.querySelectorAll('p');
+            
+            paragraphs.forEach((p, index) => {
+                p.style.opacity = '0';
+                p.classList.add('typewriter');
+                
+                setTimeout(() => {
+                    p.style.opacity = '1';
+                }, index * 2000);
+            });
+        }
+        
+        // Quiz
+        function setupQuiz() {
+            const questions = [
+                document.getElementById('question1'),
+                document.getElementById('question2'),
+                document.getElementById('question3')
+            ];
+            const quizResult = document.getElementById('quizResult');
+            let currentQuestion = 0;
+            let correctAnswers = 0;
+            
+            // Add click event to all options
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Check if correct
+                    const isCorrect = option.getAttribute('data-correct') === 'true';
+                    if (isCorrect) {
+                        correctAnswers++;
+                        option.style.backgroundColor = 'rgba(0, 255, 0, 0.2)';
+                    } else {
+                        option.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+                        
+                        // Highlight correct answer
+                        const correctOption = questions[currentQuestion].querySelector('[data-correct="true"]');
+                        correctOption.style.backgroundColor = 'rgba(0, 255, 0, 0.2)';
+                    }
+                    
+                    // Disable all options for this question
+                    const currentOptions = questions[currentQuestion].querySelectorAll('.quiz-option');
+                    currentOptions.forEach(opt => {
+                        opt.style.pointerEvents = 'none';
+                    });
+                    
+                    // Move to next question after delay
+                    setTimeout(() => {
+                        questions[currentQuestion].classList.add('hidden');
+                        currentQuestion++;
+                        
+                        if (currentQuestion < questions.length) {
+                            questions[currentQuestion].classList.remove('hidden');
+                        } else {
+                            // Show result
+                            quizResult.classList.remove('hidden');
+                        }
+                    }, 1500);
+                });
+            });
+        }
+        
+        // Counter
+        function updateCounter() {
+            // Set relationship start date (example: 2023-08-01)
+            const startDate = new Date(2023, 7, 1); // August 1, 2023
+            const counterElement = document.getElementById('counterValue');
+            
+            function calculateTimeTogether() {
+                const now = new Date();
+                const diff = now - startDate;
+                
+                // Calculate time units
+                const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+                const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                return `${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+            }
+            
+            // Update counter every second
+            setInterval(() => {
+                counterElement.textContent = calculateTimeTogether();
+            }, 1000);
+            
+            // Initial update
+            counterElement.textContent = calculateTimeTogether();
+        }
+        
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloatingHearts();
+            setupNavigation();
+            setupStartButton();
+            setupCarousel();
+            setupQuiz();
+            
+            // Show splash screen initially
+            showSection('splash');
+        });
+    </script>
+</body>
+</html>
