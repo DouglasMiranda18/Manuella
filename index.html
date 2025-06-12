@@ -436,66 +436,50 @@
 
     </section>
 
-    <!-- Carrossel de Fotos -->
-    <section id="carousel" class="section hidden">
-        <h2 class="cursive text-4xl md:text-5xl mb-10 text-[var(--color-accent)]">Nossos Momentos</h2>
-        <div class="carousel">
-            <div class="carousel-inner" id="carouselInner">
-                <div class="carousel-item">
-                    <div class="carousel-img bg-[var(--color-primary)] flex items-center justify-center">
-                        <svg class="w-32 h-32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#a52a2a"
-                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z">
-                            </path>
-                        </svg>
-                    </div>
-                    <div class="carousel-caption">
-                        <p class="cursive text-xl">"Seu sorriso é meu lugar favorito."</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-img bg-[var(--color-secondary)] flex items-center justify-center">
-                        <svg class="w-32 h-32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#a52a2a"
-                                d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z">
-                            </path>
-                        </svg>
-                    </div>
-                    <div class="carousel-caption">
-                        <p class="cursive text-xl">"Cada momento ao seu lado é uma eternidade de felicidade."</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-img bg-[var(--color-primary)] flex items-center justify-center">
-                        <svg class="w-32 h-32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#a52a2a"
-                                d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,10.5A1.5,1.5 0 0,1 13.5,12A1.5,1.5 0 0,1 12,13.5A1.5,1.5 0 0,1 10.5,12A1.5,1.5 0 0,1 12,10.5M7.5,10.5A1.5,1.5 0 0,1 9,12A1.5,1.5 0 0,1 7.5,13.5A1.5,1.5 0 0,1 6,12A1.5,1.5 0 0,1 7.5,10.5M16.5,10.5A1.5,1.5 0 0,1 18,12A1.5,1.5 0 0,1 16.5,13.5A1.5,1.5 0 0,1 15,12A1.5,1.5 0 0,1 16.5,10.5Z">
-                            </path>
-                        </svg>
-                    </div>
-                    <div class="carousel-caption">
-                        <p class="cursive text-xl">"Você é a melhor parte de todos os meus dias."</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-img bg-[var(--color-secondary)] flex items-center justify-center">
-                        <svg class="w-32 h-32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#a52a2a"
-                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z">
-                            </path>
-                        </svg>
-                    </div>
-                    <div class="carousel-caption">
-                        <p class="cursive text-xl">"Meu coração é seu, hoje e sempre."</p>
-                    </div>
+   <!-- Carrossel de Fotos -->
+<section id="carousel" class="section hidden">
+    <h2 class="cursive text-4xl md:text-5xl mb-10 text-[var(--color-accent)] text-center">Nossos Momentos</h2>
+    <div class="carousel relative overflow-hidden">
+        <div class="carousel-inner flex transition-transform duration-500 ease-in-out" id="carouselInner">
+            
+            <div class="carousel-item relative w-full flex-shrink-0">
+                <img src="foto2.jpeg" alt="Momento 1" class="carousel-full-img">
+                <div class="carousel-caption">
+                    <p class="cursive text-xl">"Seu sorriso é meu lugar favorito."</p>
                 </div>
             </div>
-            <div class="carousel-controls">
-                <button class="carousel-control" id="prevBtn">❮</button>
-                <button class="carousel-control" id="nextBtn">❯</button>
+
+            <div class="carousel-item relative w-full flex-shrink-0">
+                <img src="Foto3.jpeg" alt="Momento 2" class="carousel-full-img">
+                <div class="carousel-caption">
+                    <p class="cursive text-xl">"Cada momento ao seu lado é uma eternidade de felicidade."</p>
+                </div>
             </div>
+
+            <div class="carousel-item relative w-full flex-shrink-0">
+                <img src="foto4.jpeg" alt="Momento 3" class="carousel-full-img">
+                <div class="carousel-caption">
+                    <p class="cursive text-xl">"Você é a melhor parte de todos os meus dias."</p>
+                </div>
+            </div>
+
+            <div class="carousel-item relative w-full flex-shrink-0">
+                <img src="Foto1.jpeg" alt="Momento 4" class="carousel-full-img">
+                <div class="carousel-caption">
+                    <p class="cursive text-xl">"Meu coração é seu, hoje e sempre."</p>
+                </div>
+            </div>
+
         </div>
-    </section>
+
+        <!-- Controles -->
+        <div class="carousel-controls absolute top-1/2 left-0 right-0 flex justify-between px-4 transform -translate-y-1/2">
+            <button class="carousel-control text-white text-3xl" id="prevBtn">❮</button>
+            <button class="carousel-control text-white text-3xl" id="nextBtn">❯</button>
+        </div>
+    </div>
+</section>
+
 
     <!-- Mensagem Especial -->
     <section id="message" class="section py-8 px-4 overflow-auto">
@@ -534,7 +518,7 @@
                         </svg>
                     </div>
                     <div class="timeline-date">Primeiro Encontro</div>
-                    <div class="timeline-text">Aquele dia especial que ficará para sempre em nossas memórias...</div>
+                    <div class="timeline-text">Aquele dia especial que fomos ao cinema...</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-img bg-[var(--color-primary)] flex items-center justify-center p-4">
@@ -566,7 +550,7 @@
                             </path>
                         </svg>
                     </div>
-                    <div class="timeline-date">Momento Especial</div>
+                    <div class="timeline-date">Pedido de casmento</div>
                     <div class="timeline-text">Aquele momento inesquecível que marcou nossa história...</div>
                 </div>
             </div>
